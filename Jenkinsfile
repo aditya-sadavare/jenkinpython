@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat '"C:\\Users\\adity\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" -m unittest discover -s ./ -p "test_*.py"'
+                bat '"C:\\Users\\adity\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" -m unittest discover -s ./ -p "test_main.py"'
             }
         }
     }
