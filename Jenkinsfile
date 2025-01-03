@@ -17,4 +17,21 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            emailext(
+                subject: "Pipeline SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "The pipeline ${env.JOB_NAME} succeeded. Build #${env.BUILD_NUMBER}.",
+                to: 'recipient_email@example.com'
+            )
+        }
+        failure {
+            emailext(
+                subject: "Pipeline FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "The pipeline ${env.JOB_NAME} failed. Build #${env.BUILD_NUMBER}.",
+                to: 'recipient_email@example.com'
+            )
+        }
+    }
 }
